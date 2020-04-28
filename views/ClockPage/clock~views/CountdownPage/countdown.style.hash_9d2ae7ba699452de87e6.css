@@ -1,0 +1,416 @@
+.pretty_scroll_area__hide_scroll_element {
+  position: relative;
+}
+.pretty_scroll_area__hide_scroll_element > #screen-buttons-wrapper {
+  position: absolute;
+}
+#screen-buttons-wrapper {
+  white-space: nowrap;
+  top: 10px;
+  right: 16px;
+}
+.screen-button {
+  margin-top: 10px;
+  padding: 10px;
+}
+.screen-button,
+/* make sure that glass-background get rounded as well */
+.screen-button:before,
+.screen-button:after {
+  border-radius: 10px;
+}
+#manual-fullscreen,
+#manual-scroll {
+  cursor: pointer;
+}
+
+#screen-buttons-wrapper {
+  pointer-events: none;
+}
+.screen-button {
+  pointer-events: all;
+  opacity: 100;
+  transition: opacity 0.7s ease-out;
+}
+.hide_scroll .screen-button,
+#auto-scroll.screen-button[data-disable-auto-scroll] {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+}
+
+/* Icons */
+.screen-button {
+  position: relative;
+  padding-left: 36px;
+}
+.screen-button:before {
+  --left: 9px;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: var(--left);
+  width: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15px;
+  content: "";
+  display: block;
+}
+#manual-fullscreen:before {
+  left: calc(var(--left) + 1px);
+}
+#manual-fullscreen:before {
+  background-image: url(/fullscreen.hash_66d8040fda4e49d9985b774473848ea0.svg);
+}
+#manual-scroll:before {
+  background-image: url(/center.hash_8dd38704066e8fd9af355056dfa76415.svg);
+}
+#auto-scroll:before {
+  background-image: url(/center.hash_8dd38704066e8fd9af355056dfa76415.svg);
+}
+
+#auto-scroll:before {
+  animation: blinker 1.3s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0.15;
+  }
+}
+
+#header-container {
+  text-align: center;
+  width: 100vw;
+}
+#header-container > #header-content {
+  display: inline-flex;
+}
+
+.footer-section-title {
+  color: #5a5d61;
+}
+
+#footer_container {
+  padding-top: 40px;
+}
+
+.more_panel_block {
+  margin: auto;
+  max-width: var(--max-content-width);
+  padding-left: var(--content-side-padding);
+  padding-right: var(--content-side-padding);
+  padding-top: 34px;
+}
+
+:root {
+  --scroll-bar-width: 0px;
+}
+
+.pretty_scroll_area__parent {
+  overflow-x: hidden !important;
+}
+.pretty_scroll_area__parent > .pretty_scroll_area {
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  transition: width 0.3s linear !important;
+}
+.pretty_scroll_area__parent > .pretty_scroll_area > * {
+  /* We need to ensure that there is not overflow on the x-axis */
+  /* To create an x-axis scroll: create a new scrolling child element */
+  max-width: 100vw;
+}
+.pretty_scroll_area__parent > .pretty_scroll_area.hide_scroll {
+  width: calc(100vw + var(--scroll-bar-width)) !important;
+}
+
+.toastify,
+.toastify * {
+  cursor: default !important;
+}
+
+/* Overall Layout */
+#bt-layout-container {
+  height: 100vh;
+  overflow: hidden !important;
+}
+
+#bt-layout-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#bt-layout-container > .bt-layout-middle {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+#bt-layout-container > #bt-layout-top {
+  flex-shrink: 0;
+}
+#bt-layout-container > #bt-layout-bottom {
+  flex-shrink: 1;
+}
+#bt-layout-container > #bt-layout-top,
+#bt-layout-container > #bt-layout-bottom {
+  flex-basis: 0;
+}
+
+.bt-position-center #bt-layout-top,
+.bt-position-center #bt-layout-bottom {
+  flex-grow: 1;
+}
+.bt-position-top #bt-layout-top {
+  flex-grow: 0;
+}
+.bt-position-bottom #bt-layout-top {
+  flex-grow: 1;
+}
+.bt-position-bottom #bt-layout-bottom {
+  flex-grow: 0;
+}
+
+#bt-middle-table {
+  margin: auto;
+}
+.bt-position-left #bt-middle-table {
+  margin-left: 0;
+}
+.bt-position-right #bt-middle-table {
+  margin-right: 0;
+}
+
+table {
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+#bt-middle-table {
+  white-space: nowrap;
+}
+
+#bt-middle-table {
+  text-align: center;
+}
+#bt-middle-table td {
+  min-width: 100%;
+}
+
+#bt-middle-table *:not(input):not(a) {
+  user-select: none;
+}
+#bt-middle-table,
+#bt-middle-table * {
+  cursor: pointer;
+}
+
+.zooming__scaler {
+  transform-origin: var(--zoom-center-x) var(--zoom-center-y);
+  transition: transform 0.6s ease;
+}
+.zoomed-state .zooming__scaler {
+  transform: translate(var(--translate-x), var(--translate-y))
+    scale(var(--scale));
+}
+
+.zoomed-state .zooming__overflow-container,
+.zooming__overflow-container.zoom-transition {
+  overflow: hidden !important;
+  height: 100vh !important;
+  width: 100vw !important;
+  /*
+  background: red;
+  */
+}
+
+.zooming__zoomable-element {
+  cursor: pointer;
+}
+
+/* layout */
+@media (max-width: 727px) {
+  :root {
+    --ad-width: 320px;
+    --ad-height: 50px;
+  }
+}
+@media (min-width: 728px) {
+  :root {
+    --ad-width: 728px;
+    --ad-height: 90px;
+  }
+}
+:root {
+  --ad-remover-height: 24px;
+  --ad-border-width: 1px;
+}
+
+.adsbygoogle {
+  min-height: 20px;
+  /*
+  max-height: calc(var(--ad-height) + var(--ad-border-width));
+  */
+  max-height: var(--ad-height);
+  min-width: 20px;
+  /*
+  max-width: calc(var(--ad-width) + 2 * var(--ad-border-width));
+  */
+  max-width: var(--ad-width);
+  width: 100%;
+  height: 100vh;
+  display: block;
+  margin: auto;
+  /* important; avoids creeping out of ads when the user downsizes his browser */
+  overflow: hidden;
+}
+
+.adsbygoogle {
+  /*
+  width: 550px;
+  height: 76px;
+  background: red;
+  */
+}
+
+/* ad remover layout */
+.ad_remover {
+  width: 106px;
+  margin: auto;
+  box-sizing: border-box;
+  height: var(--ad-remover-height);
+}
+
+/* function */
+
+html:not(.show_ad) .ad-view {
+  display: none;
+}
+
+/* style */
+
+:root {
+  --ad-border-color: rgba(200, 200, 200, 0.7);
+}
+
+/* ad gray border */
+.adsbygoogle {
+  border: var(--ad-border-width) solid var(--ad-border-color);
+  border-top-width: 0;
+  box-sizing: border-box !important;
+}
+
+/* remove button */
+.ad_remover {
+  border-radius: 0 0 10px 10px;
+  background-color: var(--ad-border-color);
+  padding: 2px 10px;
+}
+.ad_remover {
+  font-family: Lato, "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+  display: block;
+  text-align: center;
+  text-decoration: none !important;
+  color: #333;
+  text-shadow: none;
+  white-space: nowrap;
+}
+/* Override Timer Tab's style */
+.ad_remover {
+  cursor: pointer !important;
+}
+
+#more_panel {
+  --input-margin: 12px;
+}
+
+/* checkbox styling */
+input[type="checkbox"] {
+  background: #292a2d;
+  border: solid 1px #5e6064;
+  height: 16px;
+  width: 28px;
+  position: relative;
+  /*vertical-align: top;*/
+  margin-right: 3px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 3px;
+  -webkit-transition: all 0.5s;
+}
+input[type="checkbox"]:after {
+  content: " ";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: #91949d;
+  position: absolute;
+  top: 1px;
+  left: 13px;
+  -webkit-border-radius: 2px;
+  -webkit-transition: all 0.5s;
+}
+input[type="checkbox"]:checked {
+  border: solid 1px #5ba4d5;
+  box-shadow: 0 0 5px #5ba4d5;
+}
+input[type="checkbox"]:checked:after {
+  background: #5ba4d5;
+  left: 1px;
+}
+
+label {
+  margin-right: var(--input-margin);
+  white-space: nowrap;
+  display: inline-block;
+}
+label > * {
+  margin: 2px;
+}
+
+label.pointer-cursor,
+label.pointer-cursor > * {
+  cursor: pointer !important;
+}
+
+/* vertical align options*/
+label:before {
+  content: " ";
+  height: 100%;
+  width: 0;
+}
+label:before,
+label > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* color input playground: http://jsfiddle.net/BC7JD/2/ */
+input[type="color"] {
+  padding: 0px;
+  height: 16px;
+  outline: 0;
+  border: 1px solid #888;
+  border-radius: 3px;
+}
+
+#share-content {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#share-container.no-share-link #share-content {
+  display: none;
+}
+#share-container:not(.no-share-link) #share-preamble {
+  display: none;
+}
+
+.action-button {
+  margin-right: var(--input-margin);
+}
+
+
+/*# sourceMappingURL=countdown.style.hash_9d2ae7ba699452de87e6.css.map*/

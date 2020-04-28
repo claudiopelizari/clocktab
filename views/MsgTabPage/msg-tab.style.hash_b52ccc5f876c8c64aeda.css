@@ -1,0 +1,247 @@
+.pretty_scroll_area__hide_scroll_element {
+  position: relative;
+}
+.pretty_scroll_area__hide_scroll_element > #screen-buttons-wrapper {
+  position: absolute;
+}
+#screen-buttons-wrapper {
+  white-space: nowrap;
+  top: 10px;
+  right: 16px;
+}
+.screen-button {
+  margin-top: 10px;
+  padding: 10px;
+}
+.screen-button,
+/* make sure that glass-background get rounded as well */
+.screen-button:before,
+.screen-button:after {
+  border-radius: 10px;
+}
+#manual-fullscreen,
+#manual-scroll {
+  cursor: pointer;
+}
+
+#screen-buttons-wrapper {
+  pointer-events: none;
+}
+.screen-button {
+  pointer-events: all;
+  opacity: 100;
+  transition: opacity 0.7s ease-out;
+}
+.hide_scroll .screen-button,
+#auto-scroll.screen-button[data-disable-auto-scroll] {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+}
+
+/* Icons */
+.screen-button {
+  position: relative;
+  padding-left: 36px;
+}
+.screen-button:before {
+  --left: 9px;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: var(--left);
+  width: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15px;
+  content: "";
+  display: block;
+}
+#manual-fullscreen:before {
+  left: calc(var(--left) + 1px);
+}
+#manual-fullscreen:before {
+  background-image: url(/fullscreen.hash_66d8040fda4e49d9985b774473848ea0.svg);
+}
+#manual-scroll:before {
+  background-image: url(/center.hash_8dd38704066e8fd9af355056dfa76415.svg);
+}
+#auto-scroll:before {
+  background-image: url(/center.hash_8dd38704066e8fd9af355056dfa76415.svg);
+}
+
+#auto-scroll:before {
+  animation: blinker 1.3s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0.15;
+  }
+}
+
+#header-container {
+  text-align: center;
+  width: 100vw;
+}
+#header-container > #header-content {
+  display: inline-flex;
+}
+
+.footer-section-title {
+  color: #5a5d61;
+}
+
+#footer_container {
+  padding-top: 40px;
+}
+
+.more_panel_block {
+  margin: auto;
+  max-width: var(--max-content-width);
+  padding-left: var(--content-side-padding);
+  padding-right: var(--content-side-padding);
+  padding-top: 34px;
+}
+
+:root {
+  --scroll-bar-width: 0px;
+}
+
+.pretty_scroll_area__parent {
+  overflow-x: hidden !important;
+}
+.pretty_scroll_area__parent > .pretty_scroll_area {
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  transition: width 0.3s linear !important;
+}
+.pretty_scroll_area__parent > .pretty_scroll_area > * {
+  /* We need to ensure that there is not overflow on the x-axis */
+  /* To create an x-axis scroll: create a new scrolling child element */
+  max-width: 100vw;
+}
+.pretty_scroll_area__parent > .pretty_scroll_area.hide_scroll {
+  width: calc(100vw + var(--scroll-bar-width)) !important;
+}
+
+/*!
+ * Toastify js 1.7.0
+ * https://github.com/apvarun/toastify-js
+ * @license MIT licensed
+ *
+ * Copyright (C) 2018 Varun A P
+ */
+
+.toastify {
+    padding: 12px 20px;
+    color: #ffffff;
+    display: inline-block;
+    box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12), 0 10px 36px -4px rgba(77, 96, 232, 0.3);
+    background: -webkit-linear-gradient(315deg, #73a5ff, #5477f5);
+    background: linear-gradient(135deg, #73a5ff, #5477f5);
+    position: fixed;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    max-width: calc(50% - 20px);
+    z-index: 2147483647;
+}
+
+.toastify.on {
+    opacity: 1;
+}
+
+.toast-close {
+    opacity: 0.4;
+    padding: 0 5px;
+}
+
+.toastify-right {
+    right: 15px;
+}
+
+.toastify-left {
+    left: 15px;
+}
+
+.toastify-top {
+    top: -150px;
+}
+
+.toastify-bottom {
+    bottom: -150px;
+}
+
+.toastify-rounded {
+    border-radius: 25px;
+}
+
+.toastify-avatar {
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0 5px;
+    border-radius: 2px;
+}
+
+.toastify-center {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    max-width: fit-content;
+}
+
+@media only screen and (max-width: 360px) {
+    .toastify-right, .toastify-left {
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        max-width: fit-content;
+    }
+}
+
+.toastify,
+.toastify * {
+  cursor: default !important;
+}
+
+#msg-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+#msg-container > #hint,
+#msg-container > #text-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+#text-container {
+  overflow: hidden;
+}
+
+#hint {
+  top: 10px !important;
+  color: #888;
+  font-size: 1.3em;
+  transition: opacity 1s ease-in-out;
+}
+
+#text {
+  display: inline-block;
+  outline: none;
+  cursor: default;
+  color: #222;
+  font-family: sans;
+  white-space: nowrap;
+}
+
+
+/*# sourceMappingURL=msg-tab.style.hash_b52ccc5f876c8c64aeda.css.map*/
